@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
 import StackCards from './pages/StackCards';
+import StackCardsPrivacy from './pages/StackCardsPrivacy';
 import BuildTracker from './pages/BuildTracker';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/stackcards" element={<StackCards />} />
+          <Route path="/stackcards/privacy" element={<StackCardsPrivacy />} />
           <Route path="/buildtracker" element={<BuildTracker />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
