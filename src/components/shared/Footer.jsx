@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSpring, animated } from 'react-spring';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
   const footerSpring = useSpring({
@@ -23,7 +24,7 @@ const Footer = () => {
             >
               <Link to="/" className="flex items-center space-x-2 mb-4">
                 <motion.img 
-                  src="/src/assets/logo.png"
+                  src={logo}
                   alt="ScaleForge Labs"
                   className="w-8 h-8 rounded-lg"
                   whileHover={{ scale: 1.1, rotate: 5 }}

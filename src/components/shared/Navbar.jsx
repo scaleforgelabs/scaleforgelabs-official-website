@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpring, animated } from 'react-spring';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <motion.img 
-              src="/src/assets/logo.png"
+              src={logo}
               alt="ScaleForge Labs"
               className="w-8 h-8 rounded-lg"
               variants={logoVariants}
@@ -145,7 +146,7 @@ const Navbar = () => {
                 <div className="flex items-center justify-between p-6 border-b border-gray-100">
                   <div className="flex items-center space-x-3">
                     <img 
-                      src="/src/assets/logo.png"
+                      src={logo}
                       alt="ScaleForge Labs"
                       className="w-9 h-9 rounded-xl"
                     />
