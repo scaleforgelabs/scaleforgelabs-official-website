@@ -1,299 +1,262 @@
 import { motion } from 'framer-motion';
-import { Lock, ClipboardList, Target, Smartphone, Building2, BarChart3, Briefcase } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Lightbulb, Shield, Globe, Heart, Target, Users, ArrowRight } from 'lucide-react';
+
+const VALUES = [
+  { icon: Lightbulb, title: 'Innovation',       desc: 'We challenge convention and build what others say is too hard. Every product we ship is an answer to a real problem.' },
+  { icon: Target,    title: 'Excellence',        desc: 'Mediocrity is not an option. We hold our software \u2014 and ourselves \u2014 to the highest standards of craft and reliability.' },
+  { icon: Shield,    title: 'Integrity',         desc: "We do what we say. We protect our customers\u2019 data. We communicate openly and honestly, even when it\u2019s difficult." },
+  { icon: Globe,     title: 'Global Thinking',   desc: 'We build for the world. Every design decision accounts for diverse users, languages, time zones, and contexts.' },
+  { icon: Heart,     title: 'Customer First',    desc: "Our customers\u2019 success is our success. We listen, iterate, and never stop improving based on real-world feedback." },
+  { icon: Users,     title: 'Team Empowerment',  desc: "Great software is built by empowered people. We invest in our team\u2019s growth, autonomy, and wellbeing." },
+];
+
 
 const About = () => {
-  const features = [
-    {
-      icon: Target,
-      title: "Problem Solving",
-      description: "We identify real problems and build elegant solutions that actually work."
-    },
-    {
-      icon: ClipboardList,
-      title: "Quality Engineering", 
-      description: "Every product we build meets the highest standards of performance and reliability."
-    },
-    {
-      icon: Lock,
-      title: "Security First",
-      description: "Security and privacy are built into everything we create from day one."
-    },
-    {
-      icon: Smartphone,
-      title: "User Experience",
-      description: "We design software that people actually enjoy using every day."
-    },
-    {
-      icon: Building2,
-      title: "Scalable Solutions",
-      description: "Our software grows with your needs, from startup to enterprise scale."
-    },
-    {
-      icon: BarChart3,
-      title: "AI-Powered Solutions",
-      description: "We integrate artificial intelligence to make software smarter and more intuitive."
-    }
-  ];
-
-  const team = [
-    {
-      name: "David Johnson",
-      role: "CEO & Founder",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400",
-      description: "Leading the vision for global enterprise transformation"
-    },
-    {
-      name: "Sarah Chen",
-      role: "CTO",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
-      description: "Building scalable enterprise technology solutions"
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Head of Product",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400",
-      description: "Designing enterprise-grade user experiences"
-    }
-  ];
-
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <motion.section 
+
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 pt-16 pb-24"
+        transition={{ duration: 0.6 }}
+        className="relative bg-gray-950 text-white pt-24 pb-24 overflow-hidden"
       >
+        <div className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(1px 1px at 20% 30%, white, transparent), radial-gradient(1.5px 1.5px at 65% 20%, white, transparent), radial-gradient(1px 1px at 50% 75%, white, transparent), radial-gradient(1px 1px at 85% 60%, white, transparent)',
+          }}
+        />
+        {/* Ambient glow */}
+        <div className="absolute top-0 right-1/3 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-black text-white text-sm font-medium mb-8">
-            About Us
-          </div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 px-4 sm:px-0"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 border border-white/20 bg-white/5 text-white/80 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8"
           >
-            About{' '}
-            <span className="bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent">
-              ScaleForge Labs
+            About ScaleForge Labs
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6"
+          >
+            We're reaching
+            <br />
+            <span className="bg-gradient-to-r from-amber-300 via-white to-sky-300 bg-clip-text text-transparent">
+              for the stars.
             </span>
           </motion.h1>
-          
-          <div className="max-w-3xl mx-auto px-4 sm:px-0 text-center">
-            <p className="text-lg sm:text-xl text-gray-600 mb-4 leading-relaxed">
-              We're a technology company that builds whatever we feel like building. 
-              If we see a problem worth solving, we build software for it. 
-              No limits, no restrictions - just pure innovation.
-            </p>
-            <p className="text-sm font-semibold text-black tracking-wider">
-              DISRUPTING THE TECH ECOSYSTEM
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              RC 8834430
-            </p>
-          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed"
+          >
+            ScaleForge Labs is a global enterprise software company with a simple mission:
+            build tools that elevate how organizations work — regardless of their size,
+            industry, or location.
+          </motion.p>
         </div>
       </motion.section>
 
-      {/* Mission & Values */}
+      {/* ── Mission & story ───────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <img
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=550&dpr=2"
+                alt="ScaleForge team collaboration"
+                className="rounded-2xl shadow-2xl object-cover w-full h-[400px]"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-black text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
+                Our story
+              </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Born from a vision to build without limits.
+              </h2>
+              <div className="space-y-4 text-gray-500 leading-relaxed text-[15px]">
+                <p>
+                  ScaleForge Labs was founded on the conviction that enterprise software doesn't have to be
+                  clunky, expensive, or locked behind impenetrable sales processes. We saw teams around the
+                  world struggling with fragmented toolsets, missed deadlines, and collaboration breakdowns.
+                </p>
+                <p>
+                  So we built BuildTracker — a unified project management platform that gives every team,
+                  from a 5-person startup to a 5,000-person enterprise, the visibility and control they
+                  need to deliver their best work.
+                </p>
+                <p>
+                  Today, ScaleForge Labs is a growing team of engineers, designers, and product thinkers
+                  driven by curiosity and a relentless pursuit of excellence. We're just getting started.
+                </p>
+              </div>
+              <Link
+                to="/careers"
+                className="group inline-flex items-center gap-2 mt-8 text-black font-semibold border-b border-black/30 pb-0.5 hover:border-black transition-colors text-sm"
+              >
+                Join our team <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Values ────────────────────────────────────────────────────────── */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              What We Do
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We build whatever we want to build. No rules, no limits - just great software that solves real problems
+            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-500 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
+              Core values
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What we stand for</h2>
+            <p className="text-gray-500 text-xl max-w-2xl mx-auto">
+              These principles guide every decision we make — from the code we ship
+              to the way we treat our customers and each other.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {VALUES.map((v, i) => {
+              const Icon = v.icon;
               return (
-                <div 
-                  key={index}
-                  className="text-center p-6 sm:p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300"
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-black/5"
                 >
-                  <div className="text-black mb-4 flex justify-center">
-                    <IconComponent size={48} />
+                  <div className="w-11 h-11 bg-black rounded-xl flex items-center justify-center mb-5">
+                    <Icon size={20} className="text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</p>
-                </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{v.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&h=400&auto=format&fit=crop" 
-                alt="Nigerian team collaboration" 
-                className="rounded-3xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
-                <div className="flex items-center space-x-3">
-                  <div className="flex -space-x-2">
-                    {[
-                      'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200',
-                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200',
-                      'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?q=80&w=200'
-                    ].map((src, i) => (
-                      <img 
-                        key={i} 
-                        src={src} 
-                        alt="team member" 
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                    ))}
-                    <div className="w-8 h-8 bg-black text-white rounded-full border-2 border-white flex items-center justify-center text-xs font-bold">
-                      50+
-                    </div>
-                  </div>
-                  <p className="text-sm font-medium text-gray-900">Join our community</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                What We Do
-              </h2>
-              <div className="w-16 h-1 bg-black rounded-full mb-8" />
-              
-              <div className="space-y-6 text-gray-600 leading-relaxed">
-                <p>
-                  We're a tech company that builds whatever catches our interest. See a boring manual process? We'll automate it. Notice people struggling with something? We'll build a solution.
-                </p>
-                <p>
-                  We don't limit ourselves to specific industries or problem types. If it's worth building, we build it. Our curiosity drives our product roadmap.
-                </p>
-                <p>
-                  Think of us as builders who never run out of ideas. We create software because we love solving problems, not because we have to stick to a business plan.
-                </p>
-              </div>
-
-              <button className="mt-8 bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors">
-                Download Our Apps
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose StackCards */}
-      <section className="py-24 bg-white">
+      {/* ── Culture ───────────────────────────────────────────────────────── */}
+      <section className="py-24 bg-black text-white relative overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose ScaleForge Labs?
+              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 text-white/80 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6">
+                Company culture
+              </div>
+              <h2 className="text-4xl font-bold mb-6">
+                We work like
+                <br />
+                owners. We think like
+                <br />
+                <span className="bg-gradient-to-r from-amber-300 to-sky-300 bg-clip-text text-transparent">
+                  astronauts.
+                </span>
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                We build software that's intelligent, secure, and actually solves real problems people face every day.
-              </p>
-
-              <div className="space-y-8">
+              <div className="space-y-4 text-gray-400 text-[15px] leading-relaxed mb-8">
+                <p>
+                  At ScaleForge Labs, culture isn't a slide deck — it's how we show up every day.
+                  We operate with high autonomy, high trust, and a shared obsession with building
+                  software that makes people's working lives genuinely better.
+                </p>
+                <p>
+                  We're fully remote-friendly, async-first, and deeply committed to maintaining
+                  a culture where every person — regardless of title — can have an outsized impact.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 {[
-                  {
-                    icon: Briefcase,
-                    title: "Real Solutions",
-                    description: "We build software that solves actual problems, not just features for the sake of features."
-                  },
-                  {
-                    icon: Smartphone,
-                    title: "Quality First",
-                    description: "Every product we ship meets our high standards for performance and user experience."
-                  },
-                  {
-                    icon: Lock,
-                    title: "Built to Last",
-                    description: "Our software is designed to grow with you and stand the test of time."
-                  }
-                ].map((feature, index) => {
-                  const IconComponent = feature.icon;
-                  return (
-                    <div 
-                      key={index} 
-                      className="flex items-start space-x-4"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-black hover:text-white transition-colors">
-                        <IconComponent size={24} />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                        <p className="text-gray-600">{feature.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+                  { label: 'Remote-first', sub: 'Work from anywhere in the world' },
+                  { label: 'Async-friendly', sub: 'Deep work is non-negotiable' },
+                  { label: 'Ship fast', sub: 'Iterate. Learn. Improve.' },
+                  { label: 'Own it', sub: 'Every person is a stakeholder' },
+                ].map((item, i) => (
+                  <div key={i} className="bg-white/5 rounded-xl p-4">
+                    <p className="font-semibold text-sm mb-1">{item.label}</p>
+                    <p className="text-gray-500 text-xs">{item.sub}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600&h=600&auto=format&fit=crop" 
-                alt="Nigerian professional networking" 
-                className="rounded-3xl shadow-2xl"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <img
+                  src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=2"
+                  alt="Team celebration"
+                  className="rounded-2xl object-cover w-full h-48 opacity-80"
+                />
+                <img
+                  src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=2"
+                  alt="Focused work"
+                  className="rounded-2xl object-cover w-full h-48 opacity-80"
+                />
+              </div>
+              <div className="space-y-4 mt-8">
+                <img
+                  src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=2"
+                  alt="Collaboration"
+                  className="rounded-2xl object-cover w-full h-48 opacity-80"
+                />
+                <img
+                  src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=2"
+                  alt="Meeting"
+                  className="rounded-2xl object-cover w-full h-48 opacity-80"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Team
-            </h2>
-            <div className="flex flex-col items-center">
-              <p className="text-xl text-gray-600 mb-4">
-                The global innovators behind ScaleForge Labs
-              </p>
-              <div className="flex items-center bg-green-50 px-4 py-2 rounded-full border border-green-200">
-                <span className="text-lg mr-2">🇳🇬</span>
-                <span className="text-sm font-medium text-green-800">Proudly Nigerian</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {team.map((member, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="aspect-w-1 aspect-h-1 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-64 object-cover"
-                  />
-                </div>
-                <div className="p-6 sm:p-8 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-black font-medium mb-3">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    {member.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+      {/* ── CTA ─────────────────────────────────────────────────────────── */}
+      <section className="py-20 bg-gray-950 text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-5">Come build with us.</h2>
+          <p className="text-gray-400 text-lg mb-8">
+            We're always on the lookout for exceptional people who share our ambition.
+            No open roles right now, but we'd love to hear from you.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/careers"
+              className="inline-flex items-center justify-center gap-2 bg-white text-black px-7 py-3.5 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+            >
+              View careers
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-7 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-colors"
+            >
+              Get in touch
+            </Link>
           </div>
         </div>
       </section>
